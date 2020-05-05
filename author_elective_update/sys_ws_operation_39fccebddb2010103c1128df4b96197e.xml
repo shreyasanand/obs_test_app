@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="DELETE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>GET</http_method>
+        <name>ci</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    var ciname=request.pathParams.ci_name;
+	gs.info("GET Configuration Item:" + ciname + " on SRAPI");
+	var body={};
+	var ci=new GlideRecord('cmdb_ci');
+	ci.addQuery('name',ciname);
+	ci.query();
+	if(ci.next()) {
+		body.Name=ci.getDisplayValue('name');
+		body.Asset_tag=ci.getDisplayValue('asset_tag');
+	}
+              
+	response.setContentType('application/JSON');
+	var writer=response.getStreamWriter();
+	writer.writeString(JSON.stringify(body));
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_486335_obs_test/srapi/ci/{ci_name}</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/ci/{ci_name}</relative_path>
+        <request_example/>
+        <requires_acl_authorization>false</requires_acl_authorization>
+        <requires_authentication>true</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>shreyas.anand</sys_created_by>
+        <sys_created_on>2020-05-04 00:27:29</sys_created_on>
+        <sys_id>39fccebddb2010103c1128df4b96197e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ci</sys_name>
+        <sys_package display_value="obs_test_app" source="x_486335_obs_test">77e68679db20101009d0d1b1ca961953</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="obs_test_app">77e68679db20101009d0d1b1ca961953</sys_scope>
+        <sys_update_name>sys_ws_operation_39fccebddb2010103c1128df4b96197e</sys_update_name>
+        <sys_updated_by>shreyas.anand</sys_updated_by>
+        <sys_updated_on>2020-05-04 00:27:29</sys_updated_on>
+        <web_service_definition display_value="srapi">47d7c6b9db20101009d0d1b1ca96196c</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="obs_test_app">77e68679db20101009d0d1b1ca961953</application>
+        <file_path/>
+        <instance_id>45eb9556db4efb089df22f17d49619c3</instance_id>
+        <instance_name>dev87869</instance_name>
+        <name>sys_ws_operation_39fccebddb2010103c1128df4b96197e</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ws_operation"&gt;&lt;sys_ws_operation action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;consumes&gt;application/json,application/xml,text/xml&lt;/consumes&gt;&lt;consumes_customized&gt;false&lt;/consumes_customized&gt;&lt;default_operation_uri/&gt;&lt;enforce_acl&gt;cf9d01d3e73003009d6247e603f6a990&lt;/enforce_acl&gt;&lt;http_method&gt;GET&lt;/http_method&gt;&lt;name&gt;ci&lt;/name&gt;&lt;operation_script&gt;&lt;![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    var ciname=request.pathParams.ci_name;
+	gs.info("GET Configuration Item:" + ciname + " on SRAPI");
+	var body={};
+	var ci=new GlideRecord('cmdb_ci');
+	ci.addQuery('name',ciname);
+	ci.query();
+	if(ci.next()) {
+		body.Name=ci.getDisplayValue('name');
+		body.Asset_tag=ci.getDisplayValue('asset_tag');
+	}
+              
+	response.setContentType('application/JSON');
+	var writer=response.getStreamWriter();
+	writer.writeString(JSON.stringify(body));
+
+})(request, response);]]&gt;&lt;/operation_script&gt;&lt;operation_uri&gt;/api/x_486335_obs_test/srapi/ci/{ci_name}&lt;/operation_uri&gt;&lt;produces&gt;application/json,application/xml,text/xml&lt;/produces&gt;&lt;produces_customized&gt;false&lt;/produces_customized&gt;&lt;relative_path&gt;/ci/{ci_name}&lt;/relative_path&gt;&lt;request_example/&gt;&lt;requires_acl_authorization&gt;false&lt;/requires_acl_authorization&gt;&lt;requires_authentication&gt;true&lt;/requires_authentication&gt;&lt;requires_snc_internal_role&gt;true&lt;/requires_snc_internal_role&gt;&lt;short_description/&gt;&lt;sys_class_name&gt;sys_ws_operation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;shreyas.anand&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-05-04 00:27:29&lt;/sys_created_on&gt;&lt;sys_id&gt;39fccebddb2010103c1128df4b96197e&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;ci&lt;/sys_name&gt;&lt;sys_package display_value="obs_test_app" source="x_486335_obs_test"&gt;77e68679db20101009d0d1b1ca961953&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="obs_test_app"&gt;77e68679db20101009d0d1b1ca961953&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ws_operation_39fccebddb2010103c1128df4b96197e&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;shreyas.anand&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-05-04 00:27:29&lt;/sys_updated_on&gt;&lt;web_service_definition display_value="srapi"&gt;47d7c6b9db20101009d0d1b1ca96196c&lt;/web_service_definition&gt;&lt;web_service_version/&gt;&lt;/sys_ws_operation&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-191194404</payload_hash>
+        <record_name>ci</record_name>
+        <reverted_from/>
+        <source>123ec271db60101009d0d1b1ca961938</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>shreyas.anand</sys_created_by>
+        <sys_created_on>2020-05-04 00:31:45</sys_created_on>
+        <sys_id>fdcdce7ddb20101009d0d1b1ca96198f</sys_id>
+        <sys_mod_count/>
+        <sys_recorded_at>171dd14a4e80000001</sys_recorded_at>
+        <sys_updated_by>shreyas.anand</sys_updated_by>
+        <sys_updated_on>2020-05-04 00:31:45</sys_updated_on>
+        <type>Scripted REST Resource</type>
+        <update_guid>004d46fd44201010d83831eb076dae73</update_guid>
+        <update_guid_history>004d46fd44201010d83831eb076dae73:-191194404</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-05-05 20:21:10</sys_created_on>
+        <sys_db_object display_value="" name="sys_ws_operation">sys_ws_operation</sys_db_object>
+        <sys_id>530df65e7d9543c1948433276601f9d1</sys_id>
+        <sys_metadata>39fccebddb2010103c1128df4b96197e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ci</sys_name>
+        <sys_package display_value="obs_test_app" source="x_486335_obs_test">77e68679db20101009d0d1b1ca961953</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="obs_test_app">77e68679db20101009d0d1b1ca961953</sys_scope>
+        <sys_scope_delete display_value="">11003e77810540328489f1152ec6c039</sys_scope_delete>
+        <sys_update_name>sys_ws_operation_39fccebddb2010103c1128df4b96197e</sys_update_name>
+        <sys_update_version display_value="sys_ws_operation_39fccebddb2010103c1128df4b96197e">fdcdce7ddb20101009d0d1b1ca96198f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-05-05 20:21:10</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
